@@ -12,10 +12,9 @@
 		1BFAE16F14CD44F200F7D73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFAE16E14CD44F200F7D73F /* CoreGraphics.framework */; };
 		1BFAE17514CD44F200F7D73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BFAE17314CD44F200F7D73F /* InfoPlist.strings */; };
 		1BFAE17814CD44F200F7D73F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAE17714CD44F200F7D73F /* main.m */; };
-		1BFAE17C14CD44F200F7D73F /* DZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAE17B14CD44F200F7D73F /* DZAppDelegate.m */; };
 		1BFAE17F14CD44F200F7D73F /* AirplayDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAE17E14CD44F200F7D73F /* AirplayDemoAppDelegate.m */; };
 		1BFAE18214CD44F200F7D73F /* AirplayDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFAE18114CD44F200F7D73F /* AirplayDemoViewController.m */; };
-		1BFAE18514CD44F200F7D73F /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFAE18414CD44F200F7D73F /* Data.plist */; };
+		1BFAE19314CD531B00F7D73F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFAE19214CD531B00F7D73F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,17 +22,15 @@
 		1BFAE16A14CD44F200F7D73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BFAE16C14CD44F200F7D73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1BFAE16E14CD44F200F7D73F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1BFAE17214CD44F200F7D73F /* AirplayDemo-Info.plist */ = {isa = PBXFileReference; path = "AirplayDemo-Info.plist"; sourceTree = "<group>"; };
+		1BFAE17214CD44F200F7D73F /* AirplayDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirplayDemo-Info.plist"; sourceTree = "<group>"; };
 		1BFAE17414CD44F200F7D73F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BFAE17714CD44F200F7D73F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1BFAE17914CD44F200F7D73F /* AirplayDemo-Prefix.pch */ = {isa = PBXFileReference; path = "AirplayDemo-Prefix.pch"; sourceTree = "<group>"; };
-		1BFAE17A14CD44F200F7D73F /* DZAppDelegate.h */ = {isa = PBXFileReference; path = DZAppDelegate.h; sourceTree = "<group>"; };
-		1BFAE17B14CD44F200F7D73F /* DZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZAppDelegate.m; sourceTree = "<group>"; };
-		1BFAE17E14CD44F200F7D73F /* AirplayDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirplayDemoAppDelegate.m; sourceTree = "<group>"; };
-		1BFAE18014CD44F200F7D73F /* AirplayDemoAppDelegate.h */ = {isa = PBXFileReference; path = AirplayDemoAppDelegate.h; sourceTree = "<group>"; };
-		1BFAE18114CD44F200F7D73F /* AirplayDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirplayDemoViewController.m; sourceTree = "<group>"; };
-		1BFAE18314CD44F200F7D73F /* AirplayDemoViewController.h */ = {isa = PBXFileReference; path = AirplayDemoViewController.h; sourceTree = "<group>"; };
-		1BFAE18414CD44F200F7D73F /* Data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		1BFAE17914CD44F200F7D73F /* AirplayDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirplayDemo-Prefix.pch"; sourceTree = "<group>"; };
+		1BFAE17E14CD44F200F7D73F /* AirplayDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AirplayDemoAppDelegate.m; path = Classes/AirplayDemoAppDelegate.m; sourceTree = "<group>"; };
+		1BFAE18014CD44F200F7D73F /* AirplayDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AirplayDemoAppDelegate.h; path = Classes/AirplayDemoAppDelegate.h; sourceTree = "<group>"; };
+		1BFAE18114CD44F200F7D73F /* AirplayDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AirplayDemoViewController.m; path = Classes/AirplayDemoViewController.m; sourceTree = "<group>"; };
+		1BFAE18314CD44F200F7D73F /* AirplayDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AirplayDemoViewController.h; path = Classes/AirplayDemoViewController.h; sourceTree = "<group>"; };
+		1BFAE19214CD531B00F7D73F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFAE19314CD531B00F7D73F /* QuartzCore.framework in Frameworks */,
 				1BFAE16B14CD44F200F7D73F /* UIKit.framework in Frameworks */,
 				1BFAE16D14CD44F200F7D73F /* Foundation.framework in Frameworks */,
 				1BFAE16F14CD44F200F7D73F /* CoreGraphics.framework in Frameworks */,
@@ -70,6 +68,7 @@
 		1BFAE16914CD44F200F7D73F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BFAE19214CD531B00F7D73F /* QuartzCore.framework */,
 				1BFAE16A14CD44F200F7D73F /* UIKit.framework */,
 				1BFAE16C14CD44F200F7D73F /* Foundation.framework */,
 				1BFAE16E14CD44F200F7D73F /* CoreGraphics.framework */,
@@ -80,8 +79,6 @@
 		1BFAE17014CD44F200F7D73F /* AirplayDemo */ = {
 			isa = PBXGroup;
 			children = (
-				1BFAE17A14CD44F200F7D73F /* DZAppDelegate.h */,
-				1BFAE17B14CD44F200F7D73F /* DZAppDelegate.m */,
 				1BFAE17614CD44F200F7D73F /* Other Sources */,
 				1BFAE17D14CD44F200F7D73F /* Classes */,
 				1BFAE17114CD44F200F7D73F /* Supporting Files */,
@@ -95,7 +92,6 @@
 				1BFAE17214CD44F200F7D73F /* AirplayDemo-Info.plist */,
 				1BFAE17314CD44F200F7D73F /* InfoPlist.strings */,
 				1BFAE17914CD44F200F7D73F /* AirplayDemo-Prefix.pch */,
-				1BFAE18414CD44F200F7D73F /* Data.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,7 +166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFAE17514CD44F200F7D73F /* InfoPlist.strings in Resources */,
-				1BFAE18514CD44F200F7D73F /* Data.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFAE17814CD44F200F7D73F /* main.m in Sources */,
-				1BFAE17C14CD44F200F7D73F /* DZAppDelegate.m in Sources */,
 				1BFAE17F14CD44F200F7D73F /* AirplayDemoAppDelegate.m in Sources */,
 				1BFAE18214CD44F200F7D73F /* AirplayDemoViewController.m in Sources */,
 			);
@@ -286,6 +280,7 @@
 				1BFAE18A14CD44F200F7D73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
