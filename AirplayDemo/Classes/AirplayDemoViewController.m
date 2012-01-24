@@ -15,10 +15,14 @@
 @implementation AirplayDemoViewController
 
 - (void)viewDidAppear:(BOOL)animated {
+    CATextLayer     *textLayer  = nil;
+    CALayer         *layer      = nil;
+    UIWindow        *_window    = nil;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     // Set up the layer that draws our text.
-    CATextLayer *textLayer = [[CATextLayer alloc] init];
+    textLayer = [[CATextLayer alloc] init];
     textLayer.foregroundColor = [[UIColor blackColor] CGColor];
     textLayer.frame = [[self view] bounds];
     textLayer.alignmentMode = kCAAlignmentCenter;
@@ -28,11 +32,11 @@
     NSUInteger screenNumber = [self screenNumber];
     textLayer.string = [NSString stringWithFormat: @"%d", screenNumber];
     
-    CALayer *layer = [[self view] layer];
+    layer = [[self view] layer];
 
     [layer addSublayer:textLayer];
     // Triple it!
-    UIWindow *_window = [[self view] window];
+    _window = [[self view] window];
     CGFloat scale = [[_window screen] scale];
     [layer setRasterizationScale:scale];
     [layer setShouldRasterize:YES];
@@ -45,10 +49,10 @@
 }
 
 - (NSUInteger) screenNumber {
-    NSUInteger result = 1;
-    UIWindow *_window = nil;
-    UIScreen *_screen = nil;
-    NSArray *_screens = nil;
+    NSUInteger  result      = 1;
+    UIWindow    *_window    = nil;
+    UIScreen    *_screen    = nil;
+    NSArray     *_screens   = nil;
     
     _screens = [UIScreen screens];
     
