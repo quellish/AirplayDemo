@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BB674D114CE963600F53A7A /* AirplayDemo Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1BB674D014CE963600F53A7A /* AirplayDemo Config.xcconfig */; };
 		1BFAE16B14CD44F200F7D73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFAE16A14CD44F200F7D73F /* UIKit.framework */; };
 		1BFAE16D14CD44F200F7D73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFAE16C14CD44F200F7D73F /* Foundation.framework */; };
 		1BFAE16F14CD44F200F7D73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFAE16E14CD44F200F7D73F /* CoreGraphics.framework */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BB674D014CE963600F53A7A /* AirplayDemo Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "AirplayDemo Config.xcconfig"; sourceTree = "<group>"; };
 		1BFAE16614CD44F200F7D73F /* AirplayDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirplayDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFAE16A14CD44F200F7D73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BFAE16C14CD44F200F7D73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,6 +53,7 @@
 		1BFAE15B14CD44F100F7D73F = {
 			isa = PBXGroup;
 			children = (
+				1BB674D014CE963600F53A7A /* AirplayDemo Config.xcconfig */,
 				1BFAE17014CD44F200F7D73F /* AirplayDemo */,
 				1BFAE16914CD44F200F7D73F /* Frameworks */,
 				1BFAE16714CD44F200F7D73F /* Products */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFAE17514CD44F200F7D73F /* InfoPlist.strings in Resources */,
+				1BB674D114CE963600F53A7A /* AirplayDemo Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +202,7 @@
 /* Begin XCBuildConfiguration section */
 		1BFAE18614CD44F200F7D73F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BB674D014CE963600F53A7A /* AirplayDemo Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -222,6 +227,7 @@
 		};
 		1BFAE18714CD44F200F7D73F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BB674D014CE963600F53A7A /* AirplayDemo Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
