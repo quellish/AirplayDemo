@@ -20,6 +20,7 @@
 
 
 @interface AirplayDemoViewController : UIViewController {
+    CATextLayer     *textLayer;
 }
 
 @end

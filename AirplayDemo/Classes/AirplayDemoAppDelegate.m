@@ -89,7 +89,7 @@
     }
     // Still nil? Create a new one.
     if (_window == nil){
-        _window = [[UIWindow alloc] initWithFrame:[screen bounds]];
+        _window = [[[UIWindow alloc] initWithFrame:[screen bounds]] autorelease];
         [_window setScreen:screen];
         [self.windows addObject:_window];
     }
@@ -132,8 +132,8 @@
         if (_window.screen == _screen){
             NSUInteger windowIndex = [self.windows indexOfObject:_window];
             [self.windows removeObjectAtIndex:windowIndex];
-            // deallocate it
-            [_window release];
+            // If it wasn't autorelease, you would deallocate it here.
+            _window = nil;
         }
     }
     return;

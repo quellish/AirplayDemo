@@ -15,7 +15,6 @@
 @implementation AirplayDemoViewController
 
 - (void)viewDidAppear:(BOOL)animated {
-    CATextLayer     *textLayer  = nil;
     CALayer         *layer      = nil;
     UIWindow        *_window    = nil;
     
@@ -40,6 +39,12 @@
     CGFloat scale = [[_window screen] scale];
     [layer setRasterizationScale:scale];
     [layer setShouldRasterize:YES];
+}
+
+- (void) dealloc {
+    [textLayer release];
+    textLayer = nil;
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
