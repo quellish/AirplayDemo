@@ -9,7 +9,10 @@
 #import "AirplayDemoAppDelegate.h"
 
 @interface AirplayDemoAppDelegate ()
-- (UIWindow *) windowForScreen:(UIScreen *)screen;
+- (UIWindow *)  createWindowForScreen:(UIScreen *)screen;
+- (void)        addViewController:(UIViewController *)controller toWindow:(UIWindow *)window;
+- (void)        screenDidConnect:(NSNotification *) notification;
+- (void)        screenDidDisconnect:(NSNotification *) notification;
 @end
 
 @implementation AirplayDemoAppDelegate
@@ -20,91 +23,120 @@
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    UIWindow *_window = nil;
+    UIWindow    *_window    = nil;
+    NSArray     *_screens   = nil;
     
-    if (windows == nil){
-        windows = [[NSMutableArray alloc] init ];
-    }
+    windows = [[NSMutableArray alloc] init];
     
-    NSArray *_screens = [UIScreen screens];
+    _screens = [UIScreen screens];
     for (UIScreen *_screen in _screens){
-        _window = [self windowForScreen:_screen];
-        AirplayDemoViewController *_viewController = [[AirplayDemoViewController alloc] init];
-        _window.rootViewController = _viewController;
+        AirplayDemoViewController *_viewController = nil;
+        
+        _viewController = [[AirplayDemoViewController alloc] init];
+        _window = [self createWindowForScreen:_screen];
+        
+        [self addViewController:_viewController toWindow:_window];
         [_viewController release];
-        [_window setScreen:_screen];
-        _window.hidden = NO;
-        if ([UIScreen mainScreen] == _screen){
+        _viewController = nil;
+        
+        // If you don't do this here, you will get the "Applications are expected to have a root view controller" message.
+        if (_screen == [UIScreen mainScreen]){
             [_window makeKeyAndVisible];
         }
+        
     }
     
     // Register for notification
     [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(screenConnected:)
+											 selector:@selector(screenDidConnect:)
 												 name:UIScreenDidConnectNotification 
 											   object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(screenDisconnected:)
+											 selector:@selector(screenDidDisconnect:)
 												 name:UIScreenDidDisconnectNotification 
 											   object:nil];
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Unregister for notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenDidConnectNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenDidDisconnectNotification object:nil];
 }
 
 #pragma mark -
 #pragma mark Memory management
 
 - (void)dealloc {
-    for (UIWindow *_window in self.windows){
-        [_window release];
-        _window = nil;
-    }
     [windows release];
+    windows = nil;
     [super dealloc];
 }
 
 #pragma mark -
 #pragma mark Private methods
 
-- (UIWindow *) windowForScreen:(UIScreen *)screen {
-    UIWindow *_window = nil;
-    _window = [[UIWindow alloc] initWithFrame:[screen bounds]];
-    // Obviously, this will grow each time a screen is added or removed.
-    // More intelligent management of the windows is required for your application
-    [self.windows addObject:_window];
+- (UIWindow *) createWindowForScreen:(UIScreen *)screen {
+    UIWindow    *_window    = nil;
+    
+    // Do we already have a window for this screen?
+    for (UIWindow *window in self.windows){
+        if (window.screen == screen){
+            _window = window;
+        }
+    }
+    // Still nil? Create a new one.
+    if (_window == nil){
+        _window = [[UIWindow alloc] initWithFrame:[screen bounds]];
+        [_window setScreen:screen];
+        [self.windows addObject:_window];
+    }
 
     return _window;
 }
 
-- (void) screenConnected:(NSNotification *) notification {
-    NSLog(@"Screen connected");
-    UIScreen *_screen = nil;
-    UIWindow *_window = nil;
+- (void) addViewController:(UIViewController *)controller toWindow:(UIWindow *)window {
+    [window setRootViewController:controller];
+    [window setHidden:NO];
+}
+
+- (void) screenDidConnect:(NSNotification *) notification {
+    UIScreen                    *_screen            = nil;
+    UIWindow                    *_window            = nil;
+    AirplayDemoViewController   *_viewController    = nil;
     
+    NSLog(@"Screen connected");
     _screen = [notification object];
     
     // Get a window for it
-    _window = [self windowForScreen:_screen];
+    _viewController = [[AirplayDemoViewController alloc] init];
+    _window = [self createWindowForScreen:_screen];
     
-    // Attach a view controller and set up the window
-    AirplayDemoViewController *_viewController = [[AirplayDemoViewController alloc] init];
-    _window.rootViewController = _viewController;
+    // Add the view controller to it
+    // This view controller does not do anything special, just presents a view that tells us
+    // what screen we're on
+    [self addViewController:_viewController toWindow:_window];
     [_viewController release];
-    [_window setScreen:_screen];
-    _window.hidden = NO;
-    // If it's the main screen, set it as key
-    if ([UIScreen mainScreen] == _screen){
-        [_window makeKeyAndVisible];
-    }
 }
 
-- (void) screenDisconnected:(NSNotification *) notification {
-    UIScreen *_screen = nil;    
+- (void) screenDidDisconnect:(NSNotification *) notification {
+    UIScreen    *_screen    = nil;
+    
+    NSLog(@"Screen disconnected");
     _screen = [notification object];
     
-    // Ideally, dispose of any attached window 
-    NSLog(@"Screen disconnected");
+    // Find any window attached to this screen, remove it from our window list, and release it.
+    for (UIWindow *_window in self.windows){
+        if (_window.screen == _screen){
+            NSUInteger windowIndex = [self.windows indexOfObject:_window];
+            [self.windows removeObjectAtIndex:windowIndex];
+            // deallocate it
+            [_window release];
+        }
+    }
+    return;
 }
 
 @end
