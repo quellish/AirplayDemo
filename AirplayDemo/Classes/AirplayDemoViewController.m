@@ -3,7 +3,7 @@
 //  AirplayDemo
 //
 //  Created by Dan Zinngrabe on 1/22/12.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//  Copyright 2012 quellish.org. All rights reserved.
 //
 
 #import "AirplayDemoViewController.h"
